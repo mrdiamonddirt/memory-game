@@ -23,7 +23,7 @@ body{
     /* color white */
   
 }
-.cards{
+.card{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +33,9 @@ body{
   height: auto;
   margin: 5px;
 }
-.holder{
+.style{
   display: none;
+}
+.style2{
+  display: flex;
 }
