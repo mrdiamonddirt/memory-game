@@ -18,7 +18,7 @@ function Cards(props) {
 <>
 {props.array.map(() => {
   return(
-    <div  className='cards' >A</div>
+    <div className='cards'><div className='holder'>A</div></div>
   )
 
 })}
