@@ -32,13 +32,23 @@ function App() {
     </div>
   );
 }
-
+let click = 0
 function Cards(props) {
   const [style, setStyle] = useState("style");
 
   const handleClick = () => {
-    console.log({ props });
-    setStyle("style2");
+    
+    console.log({click});
+    if (click === 0){
+    click = click + 1
+    setStyle("style2");  
+  } else if (click === 1){
+    click = click + 1
+      console.log({click});
+      setStyle("style2");
+    }else {
+      console.log('already clicked 2')
+    }
   };
 
   return (
