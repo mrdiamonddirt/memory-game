@@ -4,22 +4,22 @@ import "./App.css";
 function App() {
   //tiles
   const cards = [
-    "A1",
-    "A2",
-    "B1",
-    "B2",
-    "C1",
-    "C2",
-    "D1",
-    "D2",
-    "E1",
-    "E2",
-    "F1",
-    "F2",
-    "H1",
-    "H2",
-    "I1",
-    "I2",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/129.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/129.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png",
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png",
   ];
 
   return (
@@ -44,7 +44,7 @@ function Cards(props) {
   return (
     <>
       <div className={"card"} onClick={handleClick}>
-        <div className={style}>A</div>
+        <div className={style}><img alt="card" src={props.value}></img></div>
       </div>
     </>
   );

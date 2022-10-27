@@ -39,3 +39,6 @@ body{
 .style2{
   display: flex;
 }
+img{
+  width: 100px;
+}
