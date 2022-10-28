@@ -4,85 +4,116 @@ import "./App.css";
 function App() {
   const [picked1, setpicked1] = useState(null)
   const [picked2, setpicked2] = useState(null)
-
-  //tiles
-  const cards = [
+  const [cards, usedcards] = useState([
     {
       name: "pikachu",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
     },
     {
       name: "pikachu",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
     },
     {
       name: "mew",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png",
     },
     {
       name: "mew",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png",
     },
     {
       name: "bulbasaur",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
     },
     {
       name: "bulbasaur",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
     },
     {
       name: "charmander",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
     },
     {
       name: "charmander",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
     },
     {
       name: "squirtle",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
     },
     {
       name: "squirtle",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
     },
     {
       name: "Mewtwo",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png",
     },
     {
       name: "Mewtwo",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png",
     },
     {
       name: "Magicarp",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/129.png",
     },
     {
       name: "Magicarp",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/129.png",
     },
     {
       name: "Garydos",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png",
     },
     {
       name: "Garydos",
+      flipped: false,
       src: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png",
     },
-  ];
+  ])
  
   function pickedcard(cardpicked) {
     if (picked1 === null) {
       setpicked1(cardpicked)
+      let cardscopy = [...cards]
+      cardscopy[cardpicked].flipped = true;
+      usedcards(cardscopy)
     } else if (picked2 === null) {
       setpicked2(cardpicked)
-     if (picked1 === cardpicked) {
-      console.log('mathched')
+      let cardscopy = [...cards]
+      cardscopy[cardpicked].flipped = true;
+      usedcards(cardscopy)
+
+      setTimeout(() => {
+        
+     if (cards[picked1].name === cards[cardpicked].name) {
+      console.log('matched')
      } else {
       console.log('no match')
+      let cardscopy = [...cards]
+      cardscopy[picked1].flipped = false;
+      cardscopy[cardpicked].flipped = false;
+      usedcards(cardscopy)
      }
+     
+     setpicked1(null)
+     setpicked2(null)
+    }, 2000);
     }
   }
 
@@ -90,7 +121,7 @@ function App() {
     <div className="App">
       <div className="displaydiv">
         {cards.map((card, index) => {
-          return <Cards name={card.name} pickedcard={pickedcard} value={card.src} key={index} />;
+          return <Cards name={card.name} pickedcard={() => pickedcard(index)} flipped={card.flipped} value={card.src} key={index} />;
         })}
       </div>
     </div>
@@ -98,35 +129,12 @@ function App() {
 }
 
 
-let click = 0;
 function Cards(props) {
-  const [style, setStyle] = useState("style");
-  
-  const handleClick = () => {
-    
-    // console.log({ click });
-    if (click === 0) {
-      click = click + 1;
-      setStyle("style2");
-    } else if (click === 1) {
-      click = click + 1;
-      console.log({ click });
-      setStyle("style2");
-      // if (picked1 === picked2) {
-      //   console.log("match");
-      // } else {
-      //   console.log('no match')
-      // }
-
-    } else {
-      console.log("already clicked 2");
-    }
-  };
 
   return (
     <>
-      <div className={"card"} onClick={() => props.pickedcard(props.name)}>
-        <div className={style}>
+      <div className={"card"} onClick={props.pickedcard}>
+        <div className={props.flipped?"style2":"style"}>
           <img alt="card" src={props.value}></img>
         </div>
       </div>

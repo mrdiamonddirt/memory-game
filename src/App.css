@@ -35,9 +35,11 @@ body{
 }
 .style{
   display: none;
+  background-color: pink;
 }
 .style2{
   display: flex;
+  background-color: blue;
 }
 img{
   width: 100px;
