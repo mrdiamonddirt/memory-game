@@ -27,11 +27,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blueviolet;
+  background-color: lightskyblue;
   /* height: 200px; */
   width: calc(25% - 10px);
   height: calc(25vh - 10px);
   /* height: 100%; */
+  border-radius: 5px;
   margin: 5px;
   background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/87044f58-c765-43c5-bc51-8613e3ac7ab1/ddew4m7-c69a2c41-518f-48ca-ba35-8ab1895464e0.png/v1/fill/w_1385,h_577,strp/logo_pokemon_recto__editable_con_photoshop_by_marisadiecisiete_ddew4m7-pre.png);
   background-position: center;
@@ -39,7 +40,7 @@ background-repeat: no-repeat;
 background-size: contain;
 }
 .card:hover{
-  background-color: blue;
+  background-color: lightslategrey;
   box-shadow: 2px 2px black;
 
 }
@@ -52,7 +53,12 @@ background-size: contain;
   display: flex;
   justify-content: center;
   justify-items: center;
-  background-color: blue;
+  border-radius: 5px;
+  /* background-color: blue; */
+  background-image: url(./images/bg.jpg);
+  background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
   height: 100%;
 
 }
