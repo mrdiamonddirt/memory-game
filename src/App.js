@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import "./App.css";
 
 function App() {
@@ -87,12 +87,19 @@ function App() {
     },
   ])
  
+  const [shuffled, shuffstate] = useState(false)
+
   function pickedcard(cardpicked) {
     if (picked1 === null) {
+      if (shuffled === false) {
+        shuffleArray()
+        shuffstate(true) 
+      } else {
       setpicked1(cardpicked)
       let cardscopy = [...cards]
       cardscopy[cardpicked].flipped = true;
       usedcards(cardscopy)
+      }
     } else if (picked2 === null) {
       setpicked2(cardpicked)
       let cardscopy = [...cards]
@@ -113,9 +120,24 @@ function App() {
      
      setpicked1(null)
      setpicked2(null)
-    }, 2000);
+    }, 1000);
     }
   }
+  
+
+  function shuffleArray() {
+    let cardscopy = [...cards]
+    let i = cardscopy.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = cardscopy[i];
+      cardscopy[i] = cardscopy[j];
+      cardscopy[j] = temp;
+    }
+    usedcards(cardscopy)
+}
+  // shuffleArray()
+
 
   return (
     <div className="App">
@@ -127,7 +149,6 @@ function App() {
     </div>
   );
 }
-
 
 function Cards(props) {
 
